@@ -113,6 +113,7 @@ namespace CppCLRWinFormsProject {
 			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->scientificToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->historyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->temperatureToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -158,7 +159,6 @@ namespace CppCLRWinFormsProject {
 			this->button39 = (gcnew System::Windows::Forms::Button());
 			this->button40 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->temperatureToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -189,6 +189,7 @@ namespace CppCLRWinFormsProject {
 			this->standardToolStripMenuItem->Name = L"standardToolStripMenuItem";
 			this->standardToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->standardToolStripMenuItem->Text = L"Padrão";
+			this->standardToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::standardToolStripMenuItem_Click);
 			// 
 			// scientificToolStripMenuItem
 			// 
@@ -203,6 +204,13 @@ namespace CppCLRWinFormsProject {
 			this->historyToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->historyToolStripMenuItem->Text = L"Histórico";
 			this->historyToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::historyToolStripMenuItem_Click);
+			// 
+			// temperatureToolStripMenuItem
+			// 
+			this->temperatureToolStripMenuItem->Name = L"temperatureToolStripMenuItem";
+			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->temperatureToolStripMenuItem->Text = L"Temperatura";
+			this->temperatureToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::temperatureToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
@@ -251,7 +259,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(64, 64);
 			this->button2->TabIndex = 3;
-			this->button2->Text = L"7";
+			this->button2->Text = L"CE";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// button3
@@ -273,7 +281,7 @@ namespace CppCLRWinFormsProject {
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(64, 64);
 			this->button4->TabIndex = 4;
-			this->button4->Text = L"7";
+			this->button4->Text = L"C";
 			this->button4->UseVisualStyleBackColor = true;
 			// 
 			// button5
@@ -284,7 +292,7 @@ namespace CppCLRWinFormsProject {
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(64, 64);
 			this->button5->TabIndex = 9;
-			this->button5->Text = L"7";
+			this->button5->Text = L"+";
 			this->button5->UseVisualStyleBackColor = true;
 			// 
 			// button6
@@ -295,7 +303,7 @@ namespace CppCLRWinFormsProject {
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(64, 64);
 			this->button6->TabIndex = 8;
-			this->button6->Text = L"7";
+			this->button6->Text = L"9";
 			this->button6->UseVisualStyleBackColor = true;
 			// 
 			// button7
@@ -306,7 +314,7 @@ namespace CppCLRWinFormsProject {
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(64, 64);
 			this->button7->TabIndex = 7;
-			this->button7->Text = L"7";
+			this->button7->Text = L"8";
 			this->button7->UseVisualStyleBackColor = true;
 			// 
 			// button8
@@ -328,7 +336,7 @@ namespace CppCLRWinFormsProject {
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(64, 64);
 			this->button9->TabIndex = 17;
-			this->button9->Text = L"7";
+			this->button9->Text = L"*";
 			this->button9->UseVisualStyleBackColor = true;
 			// 
 			// button10
@@ -339,7 +347,7 @@ namespace CppCLRWinFormsProject {
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(64, 64);
 			this->button10->TabIndex = 16;
-			this->button10->Text = L"7";
+			this->button10->Text = L"3";
 			this->button10->UseVisualStyleBackColor = true;
 			// 
 			// button11
@@ -350,7 +358,7 @@ namespace CppCLRWinFormsProject {
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(64, 64);
 			this->button11->TabIndex = 15;
-			this->button11->Text = L"7";
+			this->button11->Text = L"2";
 			this->button11->UseVisualStyleBackColor = true;
 			// 
 			// button12
@@ -361,7 +369,7 @@ namespace CppCLRWinFormsProject {
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(64, 64);
 			this->button12->TabIndex = 14;
-			this->button12->Text = L"7";
+			this->button12->Text = L"1";
 			this->button12->UseVisualStyleBackColor = true;
 			// 
 			// button13
@@ -372,7 +380,7 @@ namespace CppCLRWinFormsProject {
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(64, 64);
 			this->button13->TabIndex = 13;
-			this->button13->Text = L"7";
+			this->button13->Text = L"-";
 			this->button13->UseVisualStyleBackColor = true;
 			// 
 			// button14
@@ -383,7 +391,7 @@ namespace CppCLRWinFormsProject {
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(64, 64);
 			this->button14->TabIndex = 12;
-			this->button14->Text = L"7";
+			this->button14->Text = L"6";
 			this->button14->UseVisualStyleBackColor = true;
 			// 
 			// button15
@@ -394,7 +402,7 @@ namespace CppCLRWinFormsProject {
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(64, 64);
 			this->button15->TabIndex = 11;
-			this->button15->Text = L"7";
+			this->button15->Text = L"5";
 			this->button15->UseVisualStyleBackColor = true;
 			// 
 			// button16
@@ -405,7 +413,7 @@ namespace CppCLRWinFormsProject {
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(64, 64);
 			this->button16->TabIndex = 10;
-			this->button16->Text = L"7";
+			this->button16->Text = L"4";
 			this->button16->UseVisualStyleBackColor = true;
 			// 
 			// button17
@@ -416,7 +424,7 @@ namespace CppCLRWinFormsProject {
 			this->button17->Name = L"button17";
 			this->button17->Size = System::Drawing::Size(64, 64);
 			this->button17->TabIndex = 21;
-			this->button17->Text = L"7";
+			this->button17->Text = L"/";
 			this->button17->UseVisualStyleBackColor = true;
 			// 
 			// button18
@@ -427,7 +435,7 @@ namespace CppCLRWinFormsProject {
 			this->button18->Name = L"button18";
 			this->button18->Size = System::Drawing::Size(64, 64);
 			this->button18->TabIndex = 20;
-			this->button18->Text = L"7";
+			this->button18->Text = L"=";
 			this->button18->UseVisualStyleBackColor = true;
 			// 
 			// button19
@@ -449,7 +457,7 @@ namespace CppCLRWinFormsProject {
 			this->button20->Name = L"button20";
 			this->button20->Size = System::Drawing::Size(64, 64);
 			this->button20->TabIndex = 18;
-			this->button20->Text = L"7";
+			this->button20->Text = L"0";
 			this->button20->UseVisualStyleBackColor = true;
 			// 
 			// button21
@@ -679,13 +687,6 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Size = System::Drawing::Size(491, 406);
 			this->panel1->TabIndex = 42;
 			// 
-			// temperatureToolStripMenuItem
-			// 
-			this->temperatureToolStripMenuItem->Name = L"temperatureToolStripMenuItem";
-			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->temperatureToolStripMenuItem->Text = L"Temperatura";
-			this->temperatureToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::temperatureToolStripMenuItem_Click);
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -770,6 +771,14 @@ private: System::Void historyToolStripMenuItem_Click(System::Object^ sender, Sys
 		txtDisplay->Width = 578;
 	}
 	private: System::Void temperatureToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Form1::Width = 1161;
+		txtDisplay->Width = 578;
+	}
+	private: System::Void standardToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Form1::Width = 325;
+		Form1::Height = 600;
+		txtDisplay->Width = 274;
+		historyToolStripMenuItem->Visible = false;
 	}
 };
 }
